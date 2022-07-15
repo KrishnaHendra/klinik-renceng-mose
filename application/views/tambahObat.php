@@ -211,8 +211,9 @@
                                 Dashboard
                             </a>
                             <a class="nav-link" href="register.html">
-                                Register
+                                Tambah Obat Pasien
                             </a>
+
                         </a>
 
                         <!-- <div class="collapse" id="collapseDashboards" data-parent="#accordionSidenav">
@@ -231,7 +232,7 @@
                                 <div class="col-auto mt-4">
                                     <h1 class="page-header-title">
                                         <div class="page-header-icon"><i data-feather="file"></i></div>
-                                        Pemeriksaan Kesehatan
+                                        Tambah Obat Pasien
                                     </h1>
                                     <!-- <div class="page-header-subtitle">A simplified page header for use with the dashboard layout</div> -->
                                 </div>
@@ -240,95 +241,85 @@
                     </div>
                 </header>
                 <!-- Main page content-->
+                <!-- Main page content-->
                 <div class="container">
-                    <div class="card mb-4">
-                        <div class="card-header">Penggunaan Obat</div>
+                    <div class="card">
+                        <div class="card-header">Pengunaan Obat</div>
                         <div class="card-body">
-                            <div class="datatable">
-                                <table class="table table-bordered table-hover" id="dataTable" width="100%"
-                                    cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Tanggal Mulai</th>
-                                            <th>Tanggal Berhenti</th>
-                                            <th>Nama Obat</th>
-                                            <th>Dosis</th>
-                                            <th>Jenis</th>
-                                            <th>Pagi</th>
-                                            <th>Siang</th>
-                                            <th>Sore</th>
-                                            <th>Malam</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <td>1</td>
-                                        <td>24-01-2022</td>
-                                        <td>25-01-2002</td>
-                                        <td>Amoxyxiine</td>
-                                        <td>15 mg</td>
-                                        <td>tablet</td>
-                                        <td>
-                                        <div class="custom-control custom-checkbox text-center">
-                                        <input class="custom-control-input" id="customCheck4" type="checkbox">
-                                        <label class="custom-control-label" for="customCheck4"></label>
-                                        </div>
-                                    </td>
-                                        <td>
-                                            <div class="custom-control custom-checkbox text-center">
-                                                <input class="custom-control-input" id="customCheck4" type="checkbox">
-                                                <label class="custom-control-label" for="customCheck4"></label>
-                                                </div>
-                                        </td>
-                                        <td>
-                                            <div class="custom-control custom-checkbox text-center">
-                                                <input class="custom-control-input" id="customCheck4" type="checkbox">
-                                                <label class="custom-control-label" for="customCheck4"></label>
-                                                </div>
-                                        </td>
-                                        <td> <div class="custom-control custom-checkbox text-center">
-                                            <input class="custom-control-input" id="customCheck4" type="checkbox">
-                                            <label class="custom-control-label" for="customCheck4"></label>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 ">
+                                        <form>
+                                            <div class="form-group"><label for="exampleFormControlInput1">Tanggal
+                                                    Mulai</label><input class="form-control"
+                                                    id="exampleFormControlInput1" type=""></div>
+                                        </form>
+                                        <form>
+                                            <div class="form-group"><label for="exampleFormControlInput1">Nama
+                                                    Obat</label><input class="form-control"
+                                                    id="exampleFormControlInput1" type=""></div>
+                                        </form>
+                                        <form>
+                                            <div class="form-group"><label
+                                                    for="exampleFormControlInput1">Jenis</label><input
+                                                    class="form-control" id="exampleFormControlInput1" type=""></div>
+                                        </form>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <form>
+                                            <div class="form-group"><label for="exampleFormControlInput1">Tanggal
+                                                    Berhenti</label><input class="form-control"
+                                                    id="exampleFormControlInput1" type=""></div>
+                                        </form>
+
+                                        <form>
+                                            <div class="form-group"><label
+                                                    for="exampleFormControlInput1">Dosis</label><input
+                                                    class="form-control" id="exampleFormControlInput1" type=""></div>
+                                        </form>
+
+                                        <form>
+
+                                            <div class="form-group"><label for="exampleFormControlInput1">Waktu</label>
                                             </div>
-                                        </td>
-                                    </tbody>
-                                    
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               
-                <div class="container">
-                    <div class="card mb-4">
-                        <div class="card-header">Evaluasi Penggunaan Obat</div>
-                        <div class="card-body">
-                            <div class="datatable">
-                                <table class="table table-bordered table-hover" id="dataTable" width="100%"
-                                    cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Tanggal Mulai</th>
-                                            <th>Hasil Observasi</th>
-                                            <th>Tindakan</th>                                    
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <td>1</td>
-                                        <td>24-01-2022</td>                
-                                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, a ab vero tenetur fugiat sit ipsam eos incidunt nihil reiciendis magni maiores numquam distinctio quidem facilis officia quaerat aliquid laboriosam?</td>
-                                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam iusto totam, ipsa voluptatem qui asperiores consequatur excepturi autem nulla eligendi dolor dolorem quis eveniet unde possimus facere sed doloribus tempora.</td>                                                                             
-                                    </tbody>                                    
-                                </table>
+
+                                            <div class="row">
+                                                <div class="custom-control custom-checkbox col-lg-2 ml-2">
+                                                    <input class="custom-control-input" id="customCheck1"
+                                                        type="checkbox">
+                                                    <label class="custom-control-label" for="customCheck1">Pagi</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox col-lg-3">
+                                                    <input class="custom-control-input" id="customCheck2"
+                                                        type="checkbox">
+                                                    <label class="custom-control-label" for="customCheck2">Siang</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox col-lg-3">
+                                                    <input class="custom-control-input" id="customCheck3"
+                                                        type="checkbox">
+                                                    <label class="custom-control-label" for="customCheck3">Sore</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox col-lg-3">
+                                                    <input class="custom-control-input" id="customCheck3"
+                                                        type="checkbox">
+                                                    <label class="custom-control-label" for="customCheck3">Malam</label>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+
+                                    </div>
+                                </div>
+
+
+
                             </div>
                         </div>
                     </div>
                 </div>
 
-                
                 <div class="container mt-5">
                     <div class="card">
                         <div class="card-header">Evaluasi Penggunaan Obat</div>
@@ -337,6 +328,11 @@
                                 <div class="form-group"><label for="exampleFormControlInput1">Tanggal</label>
                                     <div class="input-group date" id="datepicker">
                                         <input type="text" class="form-control" id="date" />
+                                        <span class="input-group-append">
+                                            <span class="input-group-text bg-light d-block">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group"><label for="exampleFormControlTextarea1">Hasil Observasi
@@ -365,21 +361,7 @@
                         </div>
                     </div>
                 </div>
-
-
             </main>
-            <footer class="footer mt-auto footer-light">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 small">Copyright &#xA9; Your Website 2020</div>
-                        <div class="col-md-6 text-md-right small">
-                            <a href="#!">Privacy Policy</a>
-                            &#xB7;
-                            <a href="#!">Terms &amp; Conditions</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
