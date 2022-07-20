@@ -32,16 +32,15 @@ class Auth extends CI_Controller
                 $data = [
                     'name' => $user['name'],
                     'username' => $user['username'],
+                    'role' => $user['role_id'],
                     'password' => $user['password'],
                     'logged_in' => TRUE
                 ];
                 $this->session->set_userdata($data);
                 if ($user['role_id'] == 1) {
-                    $this->load->view('index');
-                    die;
+                    redirect('home');
                 } else if ($user['role_id'] == 2) {
-                    print_r('Halaman Bruder n Suster');
-                    die;
+                    redirect('home');
                 } else {
                     print_r('Halaman Apoteker');
                     die;
