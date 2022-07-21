@@ -42,7 +42,7 @@ class Auth extends CI_Controller
                 } else if ($user['role_id'] == 2) {
                     redirect('home');
                 } else {
-                    print_r('Halaman Apoteker');
+                    redirect('home/tampilanApoteker');
                     die;
                 }
             }
