@@ -87,7 +87,7 @@
                     </div>
                     <div class="col-lg-6">
                         <form>
-                            <div class="form-group"><label for="exampleFormControlTextarea1">Ala</label><textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea></div>
+                            <div class="form-group"><label for="exampleFormControlTextarea1">Alamat</label><textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea></div>
                         </form>
                         <div class="form-group"><label for="exampleFormControlInput1">Pendidikan
                                 Terakhir</label><input class="form-control" id="exampleFormControlInput1" type=""></div>
