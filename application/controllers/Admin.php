@@ -5,10 +5,7 @@ class Admin extends CI_Controller {
 
   public function __CONSTRUCT() {
     parent::__CONSTRUCT();
-    $data=$this->db->get_where('user',['email'=>$this->session->userdata('email')])->row_array();
-    if(!isset($data)){
-    redirect('auth');
-    }
+    $this->load->model('Pasien_model', 'pasien');
   }
 
 	public function index()
@@ -16,5 +13,58 @@ class Admin extends CI_Controller {
     $data['konten'] = 'admin/home';
 		$this->load->view('admin/template',$data);
 	}
+
+  public function getLastIdPasien(){
+    $this->pasien->getLastIdPasien();
+  }
+
+  public function postRegister(){
+    $this->pasien->postRegister();
+    $this->session->set_flashdata('success', 'Data pasien berhasil ditambahkan!');
+    redirect('home');
+  }
+
+  public function editPasien(){
+    $this->pasien->editPasien();
+    $this->session->set_flashdata('success_edit', 'Data pasien berhasil diubah!');
+    redirect('home');    
+  }
+  
+  public function hapusPasien(){
+    $this->pasien->hapusPasien();
+    $this->session->set_flashdata('success_hapus', 'Data pasien berhasil dihapus!');
+    redirect('home');    
+  }
+
+  public function postPemeriksaanKesehatan(){
+    $this->pasien->postPemeriksaanKesehatan();
+    $this->session->set_flashdata('success_pemeriksaan_kesehatan', 'Data pemeriksaan kesehatan berhasil ditambahkan!');
+    redirect('home');
+  }
+
+  public function postPerkembanganKondisiKesehatan(){
+    $this->pasien->postPerkembanganKondisiKesehatan();
+    $this->session->set_flashdata('success_perkembangan_kondisi', 'Data perkembangan kondisi kesehatan berhasil ditambahkan!');
+    redirect('home');
+  }
+
+  public function postPenggunaanObat(){
+    $this->pasien->postPenggunaanObat();
+    $this->session->set_flashdata('success_penggunaan_obat', 'Data penggunaan obat berhasil ditambahkan!');
+    redirect('home');
+  }
+
+  public function postEvaluasiObat(){
+    $id_pasien = $this->input->post('id_pasien');
+    $this->pasien->postEvaluasiObat();
+    $this->session->set_flashdata('success_evaluasi', 'Data evaluasi penggunaan obat berhasil ditambahkan!');
+    redirect('home/tambahObat/'.$id_pasien);
+  }
+
+  public function updateStatusObatApoteker(){
+    $this->pasien->updateStatusObatApoteker();
+    $this->session->set_flashdata('success_update', 'Status obat berhasil diubah!');
+    redirect('home/tampilanApoteker');
+  }
 
 }

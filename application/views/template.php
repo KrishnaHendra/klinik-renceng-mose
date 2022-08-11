@@ -12,6 +12,7 @@
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="<?= base_url('assets/admin/') ?>assets\img\favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"> 
     <script data-search-pseudo-elements="" defer="" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.27.0/feather.min.js" crossorigin="anonymous"></script>
     <!-- <style>
@@ -33,6 +34,13 @@
         <form class="form-inline mr-auto d-none d-md-block">
         </form>
         <ul class="navbar-nav align-items-center ml-auto">
+            <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownDocs" href="javascript:void(0);" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="d-none d-md-inline font-weight-500"><?= $this->session->userdata('name') ?></div>
+                    <i class="fas fa-chevron-right dropdown-arrow"></i>
+                </a>
+            </li>                        
             <li class="nav-item dropdown no-caret mr-2 dropdown-user">
                 <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"></a>
                 <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">
@@ -144,8 +152,9 @@
     <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" crossorigin="anonymous"></script>
     <script src="<?= base_url('assets/admin/') ?>assets\demo\date-range-picker-demo.js"></script>
-    <!-- <script src="<?= base_url('assets/admin/') ?>js/sb-customizer.js"></script>
-    <sb-customizer project="sb-admin-pro"></sb-customizer> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script> 
 
 
 </body>

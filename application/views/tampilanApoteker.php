@@ -14,16 +14,11 @@
     <link rel="icon" type="image/x-icon" href="<?= base_url('assets/admin/') ?>assets\img\favicon.png">
     <script data-search-pseudo-elements="" defer="" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.27.0/feather.min.js" crossorigin="anonymous"></script>
-    <!-- <style>
-        .active {
-            color: white !important;
-            background: blue;
-            font-weight: 600;
-            width: 200px;
-            border-top-right-radius: 20px;
-            border-bottom-right-radius: 20px;
+    <style>
+        .valignmiddle {
+            vertical-align: middle !important;
         }
-    </style> -->
+    </style>
 </head>
 
 <body class="nav-fixed">
@@ -33,6 +28,14 @@
         <form class="form-inline mr-auto d-none d-md-block">
         </form>
         <ul class="navbar-nav align-items-center ml-auto">
+            <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownDocs" href="javascript:void(0);" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="d-none d-md-inline font-weight-500"><?= $this->session->userdata('name') ?></div>
+                    <i class="fas fa-chevron-right dropdown-arrow"></i>
+                </a>
+            </li>             
+
             <li class="nav-item dropdown no-caret mr-2 dropdown-user">
                 <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"></a>
                 <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">
@@ -106,21 +109,68 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Mulai</th>
-                                            <th>Berhenti</th>
                                             <th>Nama Obat</th>
-                                            <th>Dosis</th>
+                                            <th>Nama Pasien</th>
+                                            <th class="text-center">Tanggal</th>
+                                            <th class="text-center">Dosis</th>
                                             <th>Jenis</th>
                                             <th>Pagi</th>
                                             <th>Siang</th>
                                             <th>Sore</th>
                                             <th>Malam</th>
-
+                                            <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                    </tbody>
+                                        <?php $no=1; foreach($penggunaanObat as $p): ?>
+                                        <?php $waktu = json_decode($p->waktu); ?>
+                                        <tr>
+                                            <td class="valignmiddle"><?= $no++ ?></td>
+                                            <td class="valignmiddle"><?= $p->nama_obat ?></td>
+                                            <td class="valignmiddle"><?= $p->nama_pasien ?></td>
+                                            <td class="text-center valignmiddle">
+                                                <small>
+                                                <?= date('d/m/Y', strtotime($p->tgl_mulai)) ?> <br>
+                                                <b>-</b> <br>
+                                                <?= date('d/m/Y', strtotime($p->tgl_berhenti)) ?>
+                                                </small>
+                                            </td>
+                                            <td class="text-center valignmiddle"><?= $p->dosis ?>x</td>
+                                            <td class="valignmiddle"><?= $p->jenis ?></td>
+                                            <td class="text-center valignmiddle">
+                                                <?php if($waktu->pagi == 1){ ?>
+                                                    <i class="fa fa-check-circle text-success"></i>
+                                                <?php } else{ ?>
+                                                    <i class="fa fa-times-circle text-danger"></i>
+                                                <?php } ?>
+                                            </td>
+                                            <td class="text-center valignmiddle">
+                                                <?php if($waktu->siang == 1){ ?>
+                                                    <i class="fa fa-check-circle text-success"></i>
+                                                <?php } else{ ?>
+                                                    <i class="fa fa-times-circle text-danger"></i>
+                                                <?php } ?>
+                                            </td>
+                                            <td class="text-center valignmiddle">
+                                                <?php if($waktu->sore == 1){ ?>
+                                                    <i class="fa fa-check-circle text-success"></i>
+                                                <?php } else{ ?>
+                                                    <i class="fa fa-times-circle text-danger"></i>
+                                                <?php } ?>
+                                            </td>
+                                            <td class="text-center valignmiddle">
+                                                <?php if($waktu->malam == 1){ ?>
+                                                    <i class="fa fa-check-circle text-success"></i>
+                                                <?php } else{ ?>
+                                                    <i class="fa fa-times-circle text-danger"></i>
+                                                <?php } ?>
+                                            </td>
+                                            <td class="text-center valignmiddle">
+                                                <a href="#modalUbahStatus<?= $p->id_penggunaan_obat ?>" data-toggle="modal" class="btn btn-xs btn-primary">Ubah Status</a>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach; ?>
+                                    </tbody> 
 
                                 </table>
                             </div>
@@ -129,19 +179,74 @@
                 </div>
             </main>
             <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <?php foreach($penggunaanObat as $p): ?>
+            <div class="modal fade" id="modalUbahStatus<?= $p->id_penggunaan_obat ?>" tabindex="-1" role="dialog" aria-labelledby="modalUbahStatus<?= $p->id_penggunaan_obat ?>Title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Vertically Centered Modal</h5>
+                            <h5 class="modal-title" id="modalUbahStatus<?= $p->id_penggunaan_obat ?>Title"><i class="fa fa-edit"></i> Ubah Status Obat</h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                         </div>
-                        <div class="modal-body">...</div>
-                        <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save
-                                changes</button></div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col text-center mb-3">
+                                    <img src="<?= base_url('assets/admin/assets/img/delivered.svg') ?>" alt="img" width="200px">
+                                </div>
+                            </div>
+                            <table class="table table-bordered table-sm table-hover">
+                                <tr>
+                                    <td class="font-weight-bold bg-light">Nama Pasien</td>
+                                    <td><?= $p->nama_pasien ?></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold bg-light">Nama Obat</td>
+                                    <td><?= $p->nama_obat ?></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold bg-light">Jenis</td>
+                                    <td><?= $p->jenis ?></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold bg-light">Tgl Mulai</td>
+                                    <td><?= date('d F Y', strtotime($p->tgl_mulai)) ?></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold bg-light">Tgl Berhenti</td>
+                                    <td><?= date('d F Y', strtotime($p->tgl_berhenti)) ?></td>
+                                </tr>
+                                <?php
+                                    $waktu = (array) json_decode($p->waktu);
+                                    $dataWaktu = [];
+                                    foreach($waktu as $key => $val){
+                                        if($val == 1){
+                                            array_push($dataWaktu, $key);
+                                        }
+                                    }
+                                    $dosisObat = implode(', ',$dataWaktu);   
+                                ?>    
+                                <tr>
+                                    <td class="font-weight-bold bg-light">Dosis Obat</td>
+                                    <td><?= $p->dosis.'X'.' ('.$dosisObat.')' ?></td>
+                                </tr>                           
+                            </table>
+                            <div class="row">
+                                <div class="col text-center text-primary">
+                                    Update status obat ini menjadi sudah diambil?
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-sm btn-light" type="button" data-dismiss="modal">Close</button>
+                            <form action="<?= base_url('admin/updateStatusObatApoteker') ?>" method="post">
+                                <input type="hidden" name="id_penggunaan_obat" value="<?= $p->id_penggunaan_obat ?>">
+                                <button class="btn btn-sm btn-primary" type="submit">Update</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+            <?php endforeach; ?>
+
             <footer class="footer mt-auto footer-light">
                 <div class="container-fluid">
                     <div class="row">
@@ -169,8 +274,18 @@
     <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" crossorigin="anonymous"></script>
     <script src="<?= base_url('assets/admin/') ?>assets\demo\date-range-picker-demo.js"></script>
-    <!-- <script src="<?= base_url('assets/admin/') ?>js/sb-customizer.js"></script>
-    <sb-customizer project="sb-admin-pro"></sb-customizer> -->
+
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    <?php if($this->session->flashdata('success_update')){ ?>
+        Swal.fire(
+            'Berhasil',
+            'Status obat berhasil diubah!',
+            'success'
+        );    
+    <?php } ?>   
+    </script>
 
 
 </body>

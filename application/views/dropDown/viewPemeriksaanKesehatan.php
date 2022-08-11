@@ -16,8 +16,26 @@
 <!-- Main page content-->
 <div class="container">
     <div class="card">
-        <div class="card-header">Cek Kesehatan Vital</div>
+        <div class="card-header text-primary"><i class="fa fa-file"></i> Cek Kesehatan Vital</div>
         <div class="card-body">
+            <?php foreach($pasien as $p): ?>
+            <div class="alert alert-primary">
+                <div class="row">
+                    <div class="col-6 text-center" style="border-right: 1px solid #0061F2;">
+                        <h5 class="m-0">
+                            <span class="font-weight-normal"><i class="fa fa-angle-right"></i> Nama Pasien <i class="fa fa-angle-left"></i></span> <br> 
+                            <b><?= $p->nama_pasien ?></b>
+                        </h5>
+                    </div>
+                    <div class="col-6 text-center">
+                        <h5 class="m-0">
+                            <span class="font-weight-normal"><i class="fa fa-angle-right"></i> Umur Pasien <i class="fa fa-angle-left"></i></span> <br> 
+                            <b><?= $p->umur ?> Tahun</b>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
             <div class="datatable">
                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -31,63 +49,18 @@
                             <th>Keterangan</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>No</th>
-                            <th>Tanggal</th>
-                            <th>Berat Badan</th>
-                            <th>Tekanan Darah</th>
-                            <th>Temperatur</th>
-                            <th>Nadi</th>
-                            <th>Keterangan</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
+                        <?php $no=1; foreach($data as $d): ?>
                         <tr>
-                            <td>1</td>
-                            <td>2011/04/25</td>
-                            <td>60 Kg</td>
-                            <td>30</td>
-                            <td>36&#8451;</td>
-                            <td>600</td>
-                            <td>Sehat</td>
+                            <td><?= $no++ ?></td>
+                            <td><i class="fa fa-calendar"></i> <?= date('d M Y', strtotime($d->date)) ?></td>
+                            <td><?= $d->berat_badan ?> Kg</td>
+                            <td><?= $d->tekanan_darah ?></td>
+                            <td><?= $d->temperatur ?>&#8451;</td>
+                            <td><?= $d->nadi ?></td>
+                            <td><?= $d->keterangan_tambahan ?></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2011/04/26</td>
-                            <td>50 Kg</td>
-                            <td>32</td>
-                            <td>36&#8451;</td>
-                            <td>610</td>
-                            <td>Sehat</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>2011/04/27</td>
-                            <td>66 Kg</td>
-                            <td>30</td>
-                            <td>36&#8451;</td>
-                            <td>622</td>
-                            <td>Sehat</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>2011/04/28</td>
-                            <td>62 Kg</td>
-                            <td>30</td>
-                            <td>36&#8451;</td>
-                            <td>632</td>
-                            <td>Sehat</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>2011/04/29</td>
-                            <td>49 Kg</td>
-                            <td>30</td>
-                            <td>36</td>
-                            <td>772</td>
-                            <td>Sehat</td>
-                        </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

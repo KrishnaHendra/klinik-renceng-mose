@@ -15,106 +15,75 @@
 </header>
 <!-- Main page content-->
 <!-- Main page content-->
-<div class="container">
+<div class="container mb-5">
     <div class="card">
         <div class="card-header">Pengunaan Obat</div>
         <div class="card-body">
-            <div class="container">
+            <form action="<?= base_url('admin/postPenggunaanObat') ?>" method="POST">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="pasien">Pasien <small class="text-danger">*</small></label>
+                            <select name="pasien" id="pasien" class="form-control selectpicker" data-live-search="true" required>
+                                <option value="">- Pilih Pasien -</option>
+                                <?php foreach($pasien as $p): ?>
+                                <option value="<?= $p->id_pasien ?>"><?= $p->nama_pasien ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                </div> 
                 <div class="row">
                     <div class="col-lg-6 ">
-                        <form>
-                            <div class="form-group"><label for="exampleFormControlInput1">Tanggal
-                                    Mulai</label><input class="form-control" id="exampleFormControlInput1" type=""></div>
-                        </form>
-                        <form>
-                            <div class="form-group"><label for="exampleFormControlInput1">Nama
-                                    Obat</label><input class="form-control" id="exampleFormControlInput1" type=""></div>
-                        </form>
-                        <form>
-                            <div class="form-group"><label for="exampleFormControlInput1">Jenis</label><input class="form-control" id="exampleFormControlInput1" type=""></div>
-                        </form>
+                        <div class="form-group">
+                            <label for="tgl_mulai">Tanggal Mulai</label>
+                            <input class="form-control" name="tgl_mulai" id="tgl_mulai" type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nama_obat">Nama Obat</label>
+                            <input class="form-control" name="nama_obat" id="nama_obat" type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jenis">Jenis</label>
+                            <input class="form-control" name="jenis" id="jenis" type="text" required>
+                        </div>
                     </div>
 
                     <div class="col-lg-6">
-                        <form>
-                            <div class="form-group"><label for="exampleFormControlInput1">Tanggal
-                                    Berhenti</label><input class="form-control" id="exampleFormControlInput1" type=""></div>
-                        </form>
-
-                        <form>
-                            <div class="form-group"><label for="exampleFormControlInput1">Dosis</label><input class="form-control" id="exampleFormControlInput1" type=""></div>
-                        </form>
-
-                        <form>
-
-                            <div class="form-group"><label for="exampleFormControlInput1">Waktu</label>
+                            <div class="form-group">
+                                <label for="tgl_berhenti">Tanggal Berhenti</label>
+                                <input class="form-control" name="tgl_berhenti" id="tgl_berhenti" type="date" required>
                             </div>
-
-                            <div class="row">
-                                <div class="custom-control custom-checkbox col-lg-2 ml-2">
-                                    <input class="custom-control-input" id="customCheck1" type="checkbox">
-                                    <label class="custom-control-label" for="customCheck1">Pagi</label>
-                                </div>
-                                <div class="custom-control custom-checkbox col-lg-3">
-                                    <input class="custom-control-input" id="customCheck2" type="checkbox">
-                                    <label class="custom-control-label" for="customCheck2">Siang</label>
-                                </div>
-                                <div class="custom-control custom-checkbox col-lg-3">
-                                    <input class="custom-control-input" id="customCheck3" type="checkbox">
-                                    <label class="custom-control-label" for="customCheck3">Sore</label>
-                                </div>
-                                <div class="custom-control custom-checkbox col-lg-3">
-                                    <input class="custom-control-input" id="customCheck3" type="checkbox">
-                                    <label class="custom-control-label" for="customCheck3">Malam</label>
+                            <div class="form-group">
+                                <label for="dosis">Dosis</label>
+                                <input class="form-control" name="dosis" id="dosis" type="number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="waktu">Waktu</label>
+                                <div class="row">
+                                    <div class="custom-control custom-checkbox col-lg-2 ml-2">
+                                        <input class="custom-control-input" name="waktu[]" id="waktu_pagi" value="pagi" type="checkbox">
+                                        <label class="custom-control-label" for="waktu_pagi">Pagi</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-lg-3">
+                                        <input class="custom-control-input" name="waktu[]" id="waktu_siang" value="siang" type="checkbox">
+                                        <label class="custom-control-label" for="waktu_siang">Siang</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-lg-3">
+                                        <input class="custom-control-input" name="waktu[]" id="waktu_sore" value="sore" type="checkbox">
+                                        <label class="custom-control-label" for="waktu_sore">Sore</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-lg-3">
+                                        <input class="custom-control-input" name="waktu[]" id="waktu_malam" value="malam" type="checkbox">
+                                        <label class="custom-control-label" for="waktu_malam">Malam</label>
+                                    </div>
                                 </div>
                             </div>
-
-                        </form>
-
-
                     </div>
                 </div>
-
-
-
-            </div>
         </div>
     </div>
-</div>
+    <button class="btn btn-primary float-right my-3" type="submit">Simpan</button>
+    </form>
 
-<div class="container mt-5">
-    <div class="card">
-        <div class="card-header">Evaluasi Penggunaan Obat</div>
-        <div class="card-body">
-            <form>
-                <div class="form-group"><label for="exampleFormControlInput1">Tanggal</label>
-                    <div class="input-group date" id="datepicker">
-                        <input type="text" class="form-control" id="date" />
-                        <span class="input-group-append">
-                            <span class="input-group-text bg-light d-block">
-                                <i class="fa fa-calendar"></i>
-                            </span>
-                        </span>
-                    </div>
-                </div>
-                <div class="form-group"><label for="exampleFormControlTextarea1">Hasil Observasi
-                    </label><textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                <div class="form-group"><label for="exampleFormControlTextarea1">Tindakan</label><textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-
-<div class="container mt-5 mb-5">
-    <div class="card">
-        <div class="card-header">Catatan Penting</div>
-        <div class="card-body">
-            <form>
-                <div class="form-group"><label for="exampleFormControlTextarea1">Catatan</label><textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
-            </form>
-        </div>
-    </div>
 </div>
