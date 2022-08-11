@@ -78,6 +78,7 @@
 						<a href="javascript:void(0)" class="txt2 hov1">
 							Sign up
 						</a>
+
 					</div>
 				</form>
 			</div>

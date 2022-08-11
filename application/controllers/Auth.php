@@ -3,20 +3,44 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        // if($this->session->userdata('logged_in') == true){
+        //     if($this->session->userdata('role') == 1){
+        //         redirect('home');
+        //     }else if($this->session->userdata('role') == 2){
+        //         redirect('home'); 
+        //     }else{
+        //         redirect('home/tampilanApoteker');
+        //     }
+        // }
+    }
 
     public function index()
     {
-        $this->form_validation->set_rules('username', 'Username', 'trim|required', [
-            'required' => 'Username tidak boleh kosong!',
-        ]);
-        $this->form_validation->set_rules('password', 'Password', 'trim|required', [
-            'required' => 'Password tidak boleh kosong!',
-        ]);
+        if($this->session->userdata('logged_in') != true){
+            $this->form_validation->set_rules('username', 'Username', 'trim|required', [
+                'required' => 'Username tidak boleh kosong!',
+            ]);
+            $this->form_validation->set_rules('password', 'Password', 'trim|required', [
+                'required' => 'Password tidak boleh kosong!',
+            ]);
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view('login');
-        } else {
-            $this->proses_login();
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('login');
+            } else {
+                $this->proses_login();
+            }
+        }else{
+            $role = $this->session->userdata('role');
+            if($role == 1){
+                redirect('home');
+            }else if($role == 2){
+                redirect('home');
+            }else{
+                redirect('home/tampilanApoteker');
+            }
         }
     }
 
@@ -30,6 +54,7 @@ class Auth extends CI_Controller
         if ($user) {
             if (password_verify($password, $user['password'])) {
                 $data = [
+                    'id' => $user['id'],
                     'name' => $user['name'],
                     'username' => $user['username'],
                     'role' => $user['role_id'],
@@ -95,8 +120,12 @@ class Auth extends CI_Controller
 
     public function logout()
     {
+        $this->session->unset_userdata('id');
+        $this->session->unset_userdata('name');
         $this->session->unset_userdata('username');
+        $this->session->unset_userdata('role');
         $this->session->unset_userdata('password');
+        $this->session->unset_userdata('logged_in');
         $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
           <i class="fa fa-check-circle"></i> You Have Been Logged Out!
