@@ -17,6 +17,11 @@
 <!-- Main page content-->
 <!-- Main page content-->
 <div class="container">
+	<div class="row">
+		<div class="col-12">
+			<a href="<?= base_url('home/laporan_pdf_data_pasien/'.$d->id_pasien) ?>" target="_blank" class="btn btn-info btn-block mb-3">Cetak Dokumen PDF Pasien</a>
+		</div>
+	</div>
 	<div class="card">
 		<div class="card-header">Data Penanggung Jawab</div>
 		<div class="card-body">

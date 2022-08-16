@@ -146,4 +146,27 @@ class Home extends CI_Controller
     public function not_found(){
         $this->load->view('not_found');
     }
+
+    public function laporan_pdf_data_pasien($id){
+        $this->load->library('Pdf');
+        $this->data['title_pdf'] = 'Laporan PDF Data Pasien';
+        $this->data['data'] = $this->pasien->getAllDataPasien($id);
+        $file_pdf = 'laporan_data_pasien';
+        $paper = 'A4';
+        $orientation = "portrait";
+        $html = $this->load->view('laporan_pdf',$this->data, true);	  
+        $this->pdf->generate($html,$file_pdf,$paper,$orientation);            
+    } 
+
+    public function laporan_pdf_pemeriksaan_kesehatan($id){
+        $this->load->library('Pdf');
+        $this->data['title_pdf'] = 'Laporan PDF Pemeriksaan Kesehatan Pasien';
+        $this->data['pasien'] = $this->pasien->getPasienById($id);
+        $this->data['dataPemeriksaan'] = $this->pasien->getPemeriksaanKesehatanPasien($id);
+        $file_pdf = 'laporan_pemeriksaan_kesehatan_pasien';
+        $paper = 'A4';
+        $orientation = "portrait";
+        $html = $this->load->view('laporan_pdf_pemeriksaan_kesehatan',$this->data, true);	  
+        $this->pdf->generate($html,$file_pdf,$paper,$orientation);            
+    } 
 }

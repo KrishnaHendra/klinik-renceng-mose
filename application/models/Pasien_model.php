@@ -386,5 +386,9 @@ class Pasien_model extends CI_Model {
         $id_penggunaan_obat = $this->input->post('id_penggunaan_obat');
         $this->db->query("UPDATE penggunaan_obat SET status = 1 WHERE id_penggunaan_obat = '$id_penggunaan_obat'");
     }
+
+    public function deleteEvaluasiObat($id){
+        $this->db->query("DELETE FROM evaluasi_penggunaan_obat WHERE id_evaluasi = '$id'");
+    }
 // end
 }
