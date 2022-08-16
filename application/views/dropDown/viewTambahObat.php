@@ -53,7 +53,6 @@
                             <th class="text-center">Sore</th>
                             <th class="text-center">Malam</th>
                             <th class="text-center">Evaluasi</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -149,6 +148,7 @@
                                     <th>Tindakan</th>
                                     <th>Catatan</th>
                                     <th class="text-center">Created At</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -161,6 +161,9 @@
                                     <td><?= $e->tindakan ?></td>
                                     <td><?= $e->catatan_evaluasi ?></td>
                                     <td class="text-center"><?= date('d/m/Y H:i', strtotime($e->created_at)) ?></td>
+                                    <td class="text-center">
+                                        <a href="<?= base_url('admin/deleteEvaluasiObat/'.$e->id_evaluasi) ?>" onclick="return confirm('Apakah anda yakin akan menghapus data evaluasi ini?')" class="btn btn-sm btn-danger"><i class="fa fa-trash-alt"></i> </a>
+                                    </td>
                                 </tr>
                                 <?php } ?>
                                 <?php endforeach; ?>
@@ -185,6 +188,13 @@
             'Berhasil',
             'Data evaluasi penggunaan obat telah ditambahkan!',
             'success'
+        );    
+    <?php } ?>  
+    <?php if($this->session->flashdata('delete_evaluasi')){ ?>
+        Swal.fire(
+            'Berhasil',
+            'Data evaluasi penggunaan obat telah dihapus!',
+            'info'
         );    
     <?php } ?>  
 </script>

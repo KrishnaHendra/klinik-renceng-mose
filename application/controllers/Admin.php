@@ -66,5 +66,13 @@ class Admin extends CI_Controller {
     $this->session->set_flashdata('success_update', 'Status obat berhasil diubah!');
     redirect('home/tampilanApoteker');
   }
+  
+  public function deleteEvaluasiObat($id){
+    $data = $this->db->query("SELECT * FROM evaluasi_penggunaan_obat e JOIN penggunaan_obat p ON p.id_penggunaan_obat = e.id_penggunaan_obat WHERE e.id_evaluasi = '$id'")->result();
+    $id_pasien = $data[0]->id_pasien;
+    $this->pasien->deleteEvaluasiObat($id);
+    $this->session->set_flashdata('delete_evaluasi', 'Data evaluasi penggunaan obat berhasil dihapus!');
+    redirect('home/tambahObat/'.$id_pasien);
+  }
 
 }

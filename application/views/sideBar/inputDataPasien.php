@@ -26,7 +26,7 @@
                     <form action="<?= base_url('admin/postRegister') ?>" method="post">
                             <div class="form-group">
                                 <label for="no_rekam">No Rekam Medis</label>
-                                <input class="form-control" name="no_rekam" id="no_rekam" type="text" value="RKM<?= time() ?>" readonly required>
+                                <input class="form-control" name="no_rekam" id="no_rekam" type="text" required>
                             </div>
                             <div class="form-group">
                                 <label for="no_ktp">No KTP</label>
