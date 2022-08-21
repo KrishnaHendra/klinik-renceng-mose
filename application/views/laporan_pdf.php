@@ -178,11 +178,11 @@
                         <td style="width: 5%;" class="text-center">:</td>
                         <td style="width: 55%;"><?= date('d/m/Y', strtotime($d->tgl_lahir)) ?></td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td style="width: 40%;">Umur</td>
                         <td style="width: 5%;" class="text-center">:</td>
                         <td style="width: 55%;"><?= $d->umur ?> tahun</td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td style="width: 40%;">Jenis Kelamin</td>
                         <td style="width: 5%;" class="text-center">:</td>

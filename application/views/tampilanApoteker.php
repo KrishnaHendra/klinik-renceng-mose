@@ -105,15 +105,16 @@
                         <div class="card-header">Penambahan Obat</div>
                         <div class="card-body">
                             <div class="datatable">
-                                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-hover table-responsive" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Obat</th>
                                             <th>Nama Pasien</th>
                                             <th class="text-center">Tanggal</th>
+                                            <th>Nama Obat</th>
                                             <th class="text-center">Dosis</th>
-                                            <th>Jenis</th>
+                                            <th>Catatan</th>
+                                            <th>Ket</th>
                                             <th>Pagi</th>
                                             <th>Siang</th>
                                             <th>Sore</th>
@@ -126,17 +127,18 @@
                                         <?php $waktu = json_decode($p->waktu); ?>
                                         <tr>
                                             <td class="valignmiddle"><?= $no++ ?></td>
-                                            <td class="valignmiddle"><?= $p->nama_obat ?></td>
                                             <td class="valignmiddle"><?= $p->nama_pasien ?></td>
                                             <td class="text-center valignmiddle">
                                                 <small>
-                                                <?= date('d/m/Y', strtotime($p->tgl_mulai)) ?> <br>
-                                                <b>-</b> <br>
-                                                <?= date('d/m/Y', strtotime($p->tgl_berhenti)) ?>
+                                                    <?= date('d/m/Y', strtotime($p->tgl_mulai)) ?> <br>
+                                                    <b>-</b> <br>
+                                                    <?= date('d/m/Y', strtotime($p->tgl_berhenti)) ?>
                                                 </small>
                                             </td>
-                                            <td class="text-center valignmiddle"><?= $p->dosis ?>x</td>
-                                            <td class="valignmiddle"><?= $p->jenis ?></td>
+                                            <td class="valignmiddle"><?= $p->nama_obat ?> (<?= $p->jenis ?>)</td>
+                                            <td class="text-center valignmiddle"><?= $p->dosis ?></td>
+                                            <td class="valignmiddle"><?= $p->catatan_obat ?></td>
+                                            <td class="valignmiddle"><?= $p->keterangan_obat ?></td>
                                             <td class="text-center valignmiddle">
                                                 <?php if($waktu->pagi == 1){ ?>
                                                     <i class="fa fa-check-circle text-success"></i>
