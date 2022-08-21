@@ -169,4 +169,8 @@ class Home extends CI_Controller
         $html = $this->load->view('laporan_pdf_pemeriksaan_kesehatan',$this->data, true);	  
         $this->pdf->generate($html,$file_pdf,$paper,$orientation);            
     } 
+
+    public function dev(){
+        $this->load->view('dev');
+    }
 }

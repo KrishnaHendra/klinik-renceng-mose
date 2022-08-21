@@ -35,7 +35,7 @@
                             <tr>
                                 <th>No Rekam</th>
                                 <th>Nama</th>
-                                <th class="text-center">Umur</th>
+                                <th class="text-center">Tanggal Lahir</th>
                                 <th class="text-center">Tanggal Masuk</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
@@ -45,7 +45,8 @@
                                 <tr>
                                     <td><?= $p->no_rekam ?></td>
                                     <td><?= $p->nama_pasien ?></td>
-                                    <td class="text-center"><?= $p->umur ?> Tahun</td>
+                                    <!-- <td class="text-center"><?= $p->umur ?> Tahun</td> -->
+                                    <td class="text-center"><?= date('d M Y', strtotime($p->tgl_lahir)) ?></td>
                                     <td class="text-center"><?= date('d M Y', strtotime($p->tgl_masuk)) ?></td>
                                     <td class="text-center">
                                         <button class="btn btn-sm btn-primary" type="button" data-toggle="modal" data-target="#modalEditPasien<?= $p->id_pasien ?>">Edit</button>

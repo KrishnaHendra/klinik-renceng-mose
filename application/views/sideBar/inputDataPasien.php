@@ -76,9 +76,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="tgl_lahir">Tgl Lahir</label>
+                                <input class="form-control" name="tgl_lahir" id="tgl_lahir" type="date">
+                            </div>
+                            <!-- <div class="form-group">
                                 <label for="umur_pasien">Umur</label>
                                 <input class="form-control" name="umur_pasien" id="umur_pasien" type="number">
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label for="jk_pasien">Jenis Kelamin</label>
                                 <select class="form-control" name="jk_pasien" id="jk_pasien" required>

@@ -94,8 +94,13 @@
 								</div>
 							</div>
 							<div class="form-group">
+                                <label for="exampleFormControlInput1">Tgl Lahir</label>
+                                <input class="form-control" id="exampleFormControlInput1" type="text" value="<?= $d->tgl_lahir ?>" readonly>
+							</div>
+							<!-- <div class="form-group">
                                 <label for="exampleFormControlInput1">Umur</label>
-                                <input class="form-control" id="exampleFormControlInput1" type="number" value="<?= $d->umur ?>" readonly></div>
+                                <input class="form-control" id="exampleFormControlInput1" type="number" value="<?= $d->umur ?>" readonly>
+							</div> -->
 							<div class="form-group">
 								<label for="exampleFormControlSelect1">Jenis Kelamin</label>
                                 <select class="form-control" id="exampleFormControlSelect1" disabled>

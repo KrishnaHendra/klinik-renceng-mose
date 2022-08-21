@@ -48,9 +48,9 @@ class Pasien_model extends CI_Model {
         $data = [
             'nik' => $this->input->post('nik_pasien'),
             'nama_pasien' => $this->input->post('nama_pasien'),
-            'tgl_lahir' => '2000-02-20',
+            'tgl_lahir' => $this->input->post('tgl_lahir'),
             'tgl_masuk' => $this->input->post('tgl_masuk_pasien'),
-            'umur' => $this->input->post('umur_pasien'),
+            'umur' => 0,
             'jenis_kelamin' => $this->input->post('jk_pasien'),
             'alamat_pasien' => $this->input->post('alamat_pasien'),
             'pendidikan_terakhir' => $this->input->post('pendidikan_terakhir_pasien'),
@@ -279,6 +279,8 @@ class Pasien_model extends CI_Model {
 
     public function postPenggunaanObat(){
         date_default_timezone_set('Asia/Jakarta');
+        // echo "<pre>";
+        // print_r($this->input->post());die;
 
         // -> Jenis Waktu
         $allJenisWaktu = ['pagi', 'siang', 'sore', 'malam'];
@@ -301,6 +303,8 @@ class Pasien_model extends CI_Model {
             'dosis' => $this->input->post('dosis'),
             'jenis' => $this->input->post('jenis'),
             'waktu' => $dataJenisWaktu,
+            'catatan_obat' => $this->input->post('catatan'),
+            'keterangan_obat' => $this->input->post('keterangan'),
             'created_by' => $this->session->userdata('id'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')                

@@ -43,11 +43,13 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Mulai</th>
-                            <th>Berhenti</th>
+                            <th>Tanggal</th>
+                            <!-- <th>Berhenti</th> -->
                             <th>Nama Obat</th>
                             <th>Dosis</th>
-                            <th>Jenis</th>
+                            <!-- <th>Jenis</th> -->
+                            <th>Catatan</th>
+                            <th>Ket</th>
                             <th class="text-center">Pagi</th>
                             <th class="text-center">Siang</th>
                             <th class="text-center">Sore</th>
@@ -60,11 +62,19 @@
                         <?php $waktu = json_decode($d->waktu); ?>
                         <tr>
                             <td><?= $no++ ?></td>
-                            <td><?= date('d/m/Y', strtotime($d->tgl_mulai)) ?></td>
-                            <td><?= date('d/m/Y', strtotime($d->tgl_berhenti)) ?></td>
-                            <td><?= $d->nama_obat ?></td>
-                            <td><?= $d->dosis ?>x</td>
-                            <td><?= $d->jenis ?></td>
+                            <td class="text-center">
+                                <small>
+                                    <?= date('d/m/Y', strtotime($d->tgl_mulai)) ?> <br>
+                                    - <br>
+                                    <?= date('d/m/Y', strtotime($d->tgl_berhenti)) ?>
+                                </small>
+                            </td>
+                            <!-- <td><?= date('d/m/Y', strtotime($d->tgl_berhenti)) ?></td> -->
+                            <td><?= $d->nama_obat ?> (<?= $d->jenis ?>)</td>
+                            <td><?= $d->dosis ?></td>
+                            <!-- <td><?= $d->jenis ?></td> -->
+                            <td><?= $d->catatan_obat ?></td>
+                            <td><?= $d->keterangan_obat ?></td>
                             <td class="text-center">
                                 <?php if($waktu->pagi == 1){ ?>
                                     <i class="fa fa-check-circle text-success"></i>
@@ -94,8 +104,8 @@
                                 <?php } ?>
                             </td>
                             <td class="text-center">
-                                <a href="#modalEvaluasiPenggunaanObat<?= $d->id_penggunaan_obat ?>" data-toggle="modal" class="btn btn-xs btn-warning">Detail</a>
-                                <a href="<?= base_url('home/tambahEvaluasiPenggunaanObat/'.$d->id_penggunaan_obat) ?>" class="btn btn-xs btn-primary">Tambah</a>
+                                <a href="#modalEvaluasiPenggunaanObat<?= $d->id_penggunaan_obat ?>" data-toggle="modal" class="btn btn-xs btn-warning p-2"><i class="fa fa-eye"></i> </a>
+                                <a href="<?= base_url('home/tambahEvaluasiPenggunaanObat/'.$d->id_penggunaan_obat) ?>" class="btn btn-xs btn-primary p-2"><i class="fa fa-plus-circle"></i> </a>
                             </td>
                         </tr>
                         <?php endforeach; ?>
