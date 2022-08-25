@@ -105,20 +105,21 @@
                         <div class="card-header">Penambahan Obat</div>
                         <div class="card-body">
                             <div class="datatable">
-                                <table class="table table-bordered table-hover table-responsive" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
+                                            <th class="text-center">No</th>
                                             <th>Nama Pasien</th>
-                                            <th class="text-center">Tanggal</th>
+                                            <th class="text-center">Tgl Mulai</th>
+                                            <th class="text-center">Tgl Berhenti</th>
                                             <th>Nama Obat</th>
                                             <th class="text-center">Dosis</th>
                                             <th>Catatan</th>
                                             <th>Ket</th>
-                                            <th>Pagi</th>
+                                            <!-- <th>Pagi</th>
                                             <th>Siang</th>
                                             <th>Sore</th>
-                                            <th>Malam</th>
+                                            <th>Malam</th> -->
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
@@ -126,12 +127,15 @@
                                         <?php $no=1; foreach($penggunaanObat as $p): ?>
                                         <?php $waktu = json_decode($p->waktu); ?>
                                         <tr>
-                                            <td class="valignmiddle"><?= $no++ ?></td>
-                                            <td class="valignmiddle"><?= $p->nama_pasien ?></td>
+                                            <td class="valignmiddle text-center"><?= $no++ ?></td>
+                                            <td class="valignmiddle font-weight-bold"><?= $p->nama_pasien ?></td>
                                             <td class="text-center valignmiddle">
                                                 <small>
-                                                    <?= date('d/m/Y', strtotime($p->tgl_mulai)) ?> <br>
-                                                    <b>-</b> <br>
+                                                    <?= date('d/m/Y', strtotime($p->tgl_mulai)) ?>
+                                                </small>
+                                            </td>
+                                            <td class="text-center valignmiddle">
+                                                <small>
                                                     <?= date('d/m/Y', strtotime($p->tgl_berhenti)) ?>
                                                 </small>
                                             </td>
@@ -139,7 +143,7 @@
                                             <td class="text-center valignmiddle"><?= $p->dosis ?></td>
                                             <td class="valignmiddle"><?= $p->catatan_obat ?></td>
                                             <td class="valignmiddle"><?= $p->keterangan_obat ?></td>
-                                            <td class="text-center valignmiddle">
+                                            <!-- <td class="text-center valignmiddle">
                                                 <?php if($waktu->pagi == 1){ ?>
                                                     <i class="fa fa-check-circle text-success"></i>
                                                 <?php } else{ ?>
@@ -166,7 +170,7 @@
                                                 <?php } else{ ?>
                                                     <i class="fa fa-times-circle text-danger"></i>
                                                 <?php } ?>
-                                            </td>
+                                            </td> -->
                                             <td class="text-center valignmiddle">
                                                 <a href="#modalUbahStatus<?= $p->id_penggunaan_obat ?>" data-toggle="modal" class="btn btn-xs btn-primary">Ubah Status</a>
                                             </td>
@@ -193,6 +197,11 @@
                             <div class="row">
                                 <div class="col text-center mb-3">
                                     <img src="<?= base_url('assets/admin/assets/img/delivered.svg') ?>" alt="img" width="200px">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="<?= base_url('home/cetak_label_obat/'.$p->id_penggunaan_obat) ?>" target="_blank" class="btn btn-sm btn-block btn-info mb-2">Cetak Label Obat</a>
                                 </div>
                             </div>
                             <table class="table table-bordered table-sm table-hover">
@@ -228,7 +237,15 @@
                                 ?>    
                                 <tr>
                                     <td class="font-weight-bold bg-light">Dosis Obat</td>
-                                    <td><?= $p->dosis.'X'.' ('.$dosisObat.')' ?></td>
+                                    <td><?= $p->dosis ?></td>
+                                </tr>                           
+                                <tr>
+                                    <td class="font-weight-bold bg-light">Catatan</td>
+                                    <td><?= $p->catatan_obat ?></td>
+                                </tr>                           
+                                <tr>
+                                    <td class="font-weight-bold bg-light">Keterangan</td>
+                                    <td><?= $p->keterangan_obat ?></td>
                                 </tr>                           
                             </table>
                             <div class="row">
