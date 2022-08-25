@@ -89,37 +89,51 @@
                                         </div>                                            
                                     </div>
                                     <div class="col-6">
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label for="waktu">Waktu</label>
                                             <div class="row" style="margin-bottom: 1.6rem !important;">
-                                                <div class="custom-control custom-checkbox col-lg-2 ml-2">
-                                                    <input class="custom-control-input" name="waktu[]" id="waktu_pagi" value="pagi" type="checkbox">
-                                                    <label class="custom-control-label" for="waktu_pagi">Pagi</label>
+                                                <div class="col-lg-3">
+                                                    <label class="container p-0 m-0">
+                                                        <input type="hidden" name="waktu_pagi[]" value="false">
+                                                        <input type="checkbox" name="waktu_pagi[]" value="true">
+                                                        <span class="checkmark"></span>
+                                                        Pagi
+                                                    </label> 
                                                 </div>
-                                                <div class="custom-control custom-checkbox col-lg-3">
-                                                    <input class="custom-control-input" name="waktu[]" id="waktu_siang" value="siang" type="checkbox">
-                                                    <label class="custom-control-label" for="waktu_siang">Siang</label>
+                                                <div class="col-lg-3">
+                                                    <label class="container p-0 m-0">
+                                                        <input type="hidden" name="waktu_siang[]" value="false">
+                                                        <input type="checkbox" name="waktu_siang[]" value="true">
+                                                        <span class="checkmark"></span>
+                                                        Siang
+                                                    </label> 
                                                 </div>
-                                                <div class="custom-control custom-checkbox col-lg-3">
-                                                    <input class="custom-control-input" name="waktu[]" id="waktu_sore" value="sore" type="checkbox">
-                                                    <label class="custom-control-label" for="waktu_sore">Sore</label>
+                                                <div class="col-lg-3">
+                                                    <label class="container p-0 m-0">
+                                                        <input type="hidden" name="waktu_sore[]" value="false">
+                                                        <input type="checkbox" name="waktu_sore[]" value="true">
+                                                        <span class="checkmark"></span>
+                                                        Sore
+                                                    </label> 
                                                 </div>
-                                                <div class="custom-control custom-checkbox col-lg-3">
-                                                    <input class="custom-control-input" name="waktu[]" id="waktu_malam" value="malam" type="checkbox">
-                                                    <label class="custom-control-label" for="waktu_malam">Malam</label>
+                                                <div class="col-lg-3">
+                                                    <label class="container p-0 m-0">
+                                                        <input type="hidden" name="waktu_malam[]" value="false">
+                                                        <input type="checkbox" name="waktu_malam[]" value="true">
+                                                        <span class="checkmark"></span>
+                                                        Malam
+                                                    </label> 
                                                 </div>
                                             </div>
-                                        </div> 
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
+                                        </div>  -->
                                         <div class="form-group">
                                             <label for="catatan">Catatan</label>
                                             <input class="form-control" name="catatan[]" id="catatan" type="text">
-                                        </div> 
+                                        </div>                                         
                                     </div>
-                                    <div class="col-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
                                         <div class="form-group">
                                             <label for="keterangan">Keterangan</label>
                                             <input class="form-control" name="keterangan[]" id="keterangan" type="text">
@@ -216,7 +230,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script>
     // add row
-    let number = 2;
+    let number = 1;
     $("#addRow").click(function () {
         var html = '';
         html += '<div class="col-lg-12">';
@@ -252,33 +266,15 @@
         html += '</div>';
         html += '<div class="col-6">';
         html += '<div class="form-group">';
-        html += '<label>Waktu</label>';
-        html += '<div class="row" style="margin-bottom: 1.6rem !important;">';
-        html += '<div class="custom-control custom-checkbox col-lg-2 ml-2">';
-        html += '<input class="custom-control-input" name="waktu[]" value="pagi" type="checkbox"><label class="custom-control-label">Pagi</label>';
-        html += '</div>';
-        html += '<div class="custom-control custom-checkbox col-lg-2 ml-2">';
-        html += '<input class="custom-control-input" name="waktu[]" value="siang" type="checkbox"><label class="custom-control-label">Siang</label>';
-        html += '</div>';
-        html += '<div class="custom-control custom-checkbox col-lg-2 ml-2">';
-        html += '<input class="custom-control-input" name="waktu[]" value="sore" type="checkbox"><label class="custom-control-label">Sore</label>';
-        html += '</div>';
-        html += '<div class="custom-control custom-checkbox col-lg-2 ml-2">';
-        html += '<input class="custom-control-input" name="waktu[]" value="malam" type="checkbox"><label class="custom-control-label">Malam</label>';
-        html += '</div>';
-        html += '</div>';
+        html += '<label for="catatan">Catatan</label>';        
+        html += '<input class="form-control" name="catatan[]" id="catatan" type="text">';           
         html += '</div>';        
         html += '</div>';
         html += '</div>';
         // End Content
         // Content
         html += '<div class="row">';
-        html += '<div class="col-6">';
-        html += '<div class="form-group">';
-        html += '<label>Catatan</label><input class="form-control" name="catatan[]" type="text"></input>';
-        html += '</div>';
-        html += '</div>';
-        html += '<div class="col-6">';
+        html += '<div class="col-12">';
         html += '<div class="form-group">';
         html += '<label>Keterangan</label><input class="form-control" name="keterangan[]" type="text"></input>';
         html += '</div>';        
@@ -291,6 +287,7 @@
         html += '</div>';
 
         $('#newRow').append(html);
+        $('.selectpicker').selectpicker('refresh'); 
     });
 
     // remove row

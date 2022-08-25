@@ -279,37 +279,28 @@ class Pasien_model extends CI_Model {
 
     public function postPenggunaanObat(){
         date_default_timezone_set('Asia/Jakarta');
-        // echo "<pre>";
-        // print_r($this->input->post());die;
-
-        // -> Jenis Waktu
-        $allJenisWaktu = ['pagi', 'siang', 'sore', 'malam'];
-        $listJenisWaktu = [];
-        $waktu = $this->input->post('waktu');
-        foreach($allJenisWaktu as $val){
-            if(in_array($val, $waktu) == 1){
-                $listJenisWaktu[$val] = 1;
-            }else{
-                $listJenisWaktu[$val] = 0;
-            }
+        $id_pasien = $this->input->post('pasien');
+        $tgl_mulai = $this->input->post('tgl_mulai');
+        $tgl_berhenti = $this->input->post('tgl_berhenti');
+        $nama_obat = $this->input->post('nama_obat');
+        foreach($nama_obat as $key => $val){
+            $data = [
+                'id_pasien' => $id_pasien,
+                'tgl_mulai' => $tgl_mulai,
+                'tgl_berhenti' => $tgl_berhenti,
+                'nama_obat' => $this->input->post('nama_obat')[$key],
+                'dosis' => $this->input->post('dosis')[$key],
+                'jenis' => $this->input->post('jenis')[$key],
+                'waktu' => '{"pagi": 1, "siang": 1, "sore": 1, "malam": 1}',
+                'catatan_obat' => $this->input->post('catatan')[$key],
+                'keterangan_obat' => $this->input->post('keterangan')[$key],
+                'status' => 0,
+                'created_by' => $this->session->userdata('id'),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')  
+            ];
+            $this->db->insert('penggunaan_obat', $data);
         }
-        $dataJenisWaktu =  json_encode($listJenisWaktu);   
-
-        $data = [
-            'id_pasien' => $this->input->post('pasien'),
-            'tgl_mulai' => $this->input->post('tgl_mulai'),
-            'tgl_berhenti' => $this->input->post('tgl_berhenti'),
-            'nama_obat' => $this->input->post('nama_obat'),
-            'dosis' => $this->input->post('dosis'),
-            'jenis' => $this->input->post('jenis'),
-            'waktu' => $dataJenisWaktu,
-            'catatan_obat' => $this->input->post('catatan'),
-            'keterangan_obat' => $this->input->post('keterangan'),
-            'created_by' => $this->session->userdata('id'),
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')                
-        ];
-        $this->db->insert('penggunaan_obat', $data);
     }
 
     public function getPemeriksaanKesehatanPasien($id){
@@ -345,9 +336,10 @@ class Pasien_model extends CI_Model {
     }    
     
     public function getObatById($id){
-        $this->db->select('*');
+        $this->db->select('penggunaan_obat.*, pasien.* , user.name');
         $this->db->from('penggunaan_obat');
         $this->db->join('pasien', 'pasien.id_pasien = penggunaan_obat.id_pasien');
+        $this->db->join('user', 'penggunaan_obat.created_by = user.id');
         $this->db->where('id_penggunaan_obat', $id);
         $data = $this->db->get()->result();
         return $data;

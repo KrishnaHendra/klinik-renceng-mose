@@ -170,6 +170,17 @@ class Home extends CI_Controller
         $this->pdf->generate($html,$file_pdf,$paper,$orientation);            
     } 
 
+    public function cetak_label_obat($id){
+        $this->load->library('Pdf');
+        $this->data['title_pdf'] = 'Label Obat';
+        $this->data['obat'] = $this->pasien->getObatById($id);
+        $file_pdf = 'label_obat';
+        $paper = 'A8';
+        $orientation = "landscape";
+        $html = $this->load->view('label_obat',$this->data, true);	  
+        $this->pdf->generate($html,$file_pdf,$paper,$orientation);            
+    } 
+
     public function dev(){
         $this->load->view('dev');
     }

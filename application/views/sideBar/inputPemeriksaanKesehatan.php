@@ -45,7 +45,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="tekanan_darah">Tekanan Darah</label>
-                                <input class="form-control" id="tekanan_darah" name="tekanan_darah" type="number" required>
+                                <input class="form-control" id="tekanan_darah" name="tekanan_darah" type="text" required>
                             </div>
                     </div>
                     <div class="col-lg-6">
