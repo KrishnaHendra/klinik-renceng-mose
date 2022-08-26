@@ -17,6 +17,11 @@
 
 <!-- Main page content-->
 <div class="container">
+    <div class="row">
+		<div class="col-12">
+			<a href="<?= base_url('home/laporan_pdf_perkembangan_kesehatan/'. $pasien[0]->id_pasien) ?>" target="_blank" class="btn btn-info btn-block mb-3">Cetak Dokumen PDF Perkembangan Kesehatan</a>
+		</div>
+    </div> 
     <div class="card">
         <div class="card-header"><i class="fa fa-file"></i> Cek Kesehatan Vital</div>
         <div class="card-body">
@@ -54,7 +59,7 @@
                         <?php $no=1; foreach($data as $d): ?>
                         <tr>
                             <td><?= $no++ ?></td>
-                            <td><i class="fa fa-calendar"></i> <?= date('d M Y', strtotime($d->date)) ?></td>
+                            <td><?= date('d/m/Y', strtotime($d->date)) ?></td>
                             <td><?= $d->farmokoterapi_before ?></td>
                             <td><?= $d->kondisi_kesehatan ?></td>
                             <td><?= $d->farmokoterapi_after ?></td>
