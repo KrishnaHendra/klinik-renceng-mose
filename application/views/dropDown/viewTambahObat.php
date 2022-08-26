@@ -17,6 +17,12 @@
 
 
 <div class="container mt-5">
+    <div class="row">
+		<div class="col-12">
+			<a href="<?= base_url('home/laporan_pdf_pemeriksaan_kesehatan/'. $pasien[0]->id_pasien) ?>" target="_blank" class="btn btn-info btn-block mb-3">Cetak Dokumen PDF Pemeriksaan Kesehatan</a>
+		</div>
+	</div>     
+
     <div class="card">
         <div class="card-header"><i class="fa fa-file"></i> Penambahan Obat</div>
         <div class="card-body">

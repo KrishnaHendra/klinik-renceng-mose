@@ -170,6 +170,20 @@ class Home extends CI_Controller
         $this->pdf->generate($html,$file_pdf,$paper,$orientation);            
     } 
 
+    public function laporan_pdf_perkembangan_kesehatan($id){
+        $this->load->library('Pdf');
+        $this->data['title_pdf'] = 'Laporan PDF Perkembangan Kesehatan Pasien';
+        $this->data['pasien'] = $this->pasien->getPasienById($id);
+        $this->data['perkembanganKondisi'] = $this->pasien->getPerkembanganKondisi($id);
+        $file_pdf = 'laporan_perkembangan_kesehatan_pasien';
+        $paper = 'A4';
+        $orientation = "portrait";
+        $html = $this->load->view('laporan_pdf_perkembangan_kesehatan',$this->data, true);	  
+        $this->pdf->generate($html,$file_pdf,$paper,$orientation);         
+        echo "<pre>";
+        print_r($this->data);die;   
+    } 
+
     public function cetak_label_obat($id){
         $this->load->library('Pdf');
         $this->data['title_pdf'] = 'Label Obat';
