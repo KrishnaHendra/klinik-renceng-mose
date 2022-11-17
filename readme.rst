@@ -1,5 +1,5 @@
 ###################
-Klinik Renceng Mose Information Systems Project
+Klinik Renceng Mose Information Systems
 ###################
 
 ###################
