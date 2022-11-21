@@ -1,5 +1,5 @@
 ###################
-Klinik Renceng Mose Information
+Klinik Renceng Mose
 ###################
 
 ###################
