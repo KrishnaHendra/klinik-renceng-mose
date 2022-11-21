@@ -1,5 +1,5 @@
 ###################
-Klinik Renceng Mose Sistem Info
+Klinik Renceng Mose Sistem
 ###################
 
 ###################
