@@ -1,5 +1,5 @@
 ###################
-Klinik Renceng Mose Project - CI
+Klinik Renceng Mose Project
 ###################
 
 ###################
