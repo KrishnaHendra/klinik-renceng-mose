@@ -1,8 +1,6 @@
 ###################
 Klinik Renceng Mose Project
 ###################
-
-- Sign In Page
 	
 ###################
 What is CodeIgniter
