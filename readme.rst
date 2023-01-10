@@ -14,7 +14,6 @@ Klinik Renceng Mose Project
     - Marketing
     - Employee
 - Dynamic Function
-    - Create
 
 ###################
 What is CodeIgniter
