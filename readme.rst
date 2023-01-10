@@ -2,7 +2,6 @@
 Klinik Renceng Mose Project
 ###################
 
-## Page and Features
 - Sign In Page
 - Sign Up Page
 - Forgot Password
