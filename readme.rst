@@ -9,7 +9,6 @@ Klinik Renceng Mose Project
 - Remember Me
 - Dynamic Role
     - Administrator
-    - Manager
 	
 ###################
 What is CodeIgniter
