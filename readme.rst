@@ -6,7 +6,6 @@ Klinik Renceng Mose Project
 - Sign Up Page
 - Forgot Password
 - Remember Me
-- Dynamic Role
 	
 ###################
 What is CodeIgniter
