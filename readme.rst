@@ -10,7 +10,6 @@ Klinik Renceng Mose Project
 - Dynamic Role
     - Administrator
     - Manager
-    - Accounting
 	
 ###################
 What is CodeIgniter
