@@ -4,7 +4,6 @@ Klinik Renceng Mose Project
 
 - Sign In Page
 - Sign Up Page
-- Forgot Password
 	
 ###################
 What is CodeIgniter
