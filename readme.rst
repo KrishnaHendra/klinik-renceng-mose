@@ -15,7 +15,6 @@ Klinik Renceng Mose Project
     - Employee
 - Dynamic Function
     - Create
-    - Read
 
 ###################
 What is CodeIgniter
