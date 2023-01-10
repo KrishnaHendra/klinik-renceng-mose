@@ -11,8 +11,6 @@ Klinik Renceng Mose Project
     - Administrator
     - Manager
     - Accounting
-    - Marketing
-
 ###################
 What is CodeIgniter
 ###################
