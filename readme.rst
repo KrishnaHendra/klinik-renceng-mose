@@ -8,7 +8,6 @@ Klinik Renceng Mose Project
 - Forgot Password
 - Remember Me
 - Dynamic Role
-    - Administrator
 	
 ###################
 What is CodeIgniter
