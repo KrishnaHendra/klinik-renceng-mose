@@ -2,14 +2,13 @@
 Klinik Renceng Mose Project
 ###################
 
+```
 ## Page and Features
 - Sign In Page
 - Sign Up Page
-- Forgot Password
-- Remember Me
 - Dynamic Role
 - Dynamic Function
-    - Create
+```
 	
 ###################
 What is CodeIgniter
