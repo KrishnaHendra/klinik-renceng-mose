@@ -10,7 +10,6 @@ Klinik Renceng Mose Project
 - Dynamic Role
     - Adminstrator
     - Accounting
-    - Manager
 - Dynamic Function
     - Create
     - Read
