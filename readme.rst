@@ -10,7 +10,6 @@ Klinik Renceng Mose Project
 - Dynamic Role
 - Dynamic Function
     - Create
-    - Read
 	
 ###################
 What is CodeIgniter
