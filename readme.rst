@@ -9,7 +9,6 @@ Klinik Renceng Mose Project
 - Remember Me
 - Dynamic Role
     - Adminstrator
-    - Accounting
 - Dynamic Function
     - Create
     - Read
