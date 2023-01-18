@@ -12,7 +12,6 @@ Klinik Renceng Mose Project
     - Create
     - Read
     - Update
-    - Delete
 	
 ###################
 What is CodeIgniter
