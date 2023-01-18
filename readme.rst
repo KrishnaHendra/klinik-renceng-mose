@@ -12,7 +12,6 @@ Klinik Renceng Mose Project
     - Accounting
     - Manager
     - Chef
-    - Customer
 - Dynamic Function
     - Create
     - Read
