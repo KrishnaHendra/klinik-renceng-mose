@@ -11,7 +11,6 @@ Klinik Renceng Mose Project
     - Adminstrator
     - Accounting
     - Manager
-    - Chef
 - Dynamic Function
     - Create
     - Read
